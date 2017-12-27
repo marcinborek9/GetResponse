@@ -198,25 +198,6 @@ var index = 0;
 var day = 0;
 var week = 0;
 var k = 0;
-displayContent(false);
-
-document.querySelector('.next').addEventListener('click', function() {
-  document.querySelector('.previous').style.visibility = 'visible';
-  k += 6;
-  displayContent(false);
-  if (obj.length <= k + 6) {
-    document.querySelector('.next').style.visibility = 'hidden';
-  }
-});
-
-document.querySelector('.previous').addEventListener('click', function() {
-  k -= 6;
-  displayContent(true)
-  document.querySelector('.next').style.visibility = 'visible';
-  if (k <= 0) {
-    document.querySelector('.previous').style.visibility = 'hidden';
-  }
-});
 
 function changeProgressBar() {
   var elements = document.getElementsByClassName('progress-bar__element'), i, len;
@@ -276,6 +257,26 @@ function displayContent(rev) {
   changeWeek(rev);
   changeDay(rev);
 }
+displayContent(false);
+
+
+document.querySelector('.next').addEventListener('click', function() {
+  document.querySelector('.previous').style.visibility = 'visible';
+  k += 6;
+  displayContent(false);
+  if (obj.length <= k + 6) {
+    document.querySelector('.next').style.visibility = 'hidden';
+  }
+});
+
+document.querySelector('.previous').addEventListener('click', function() {
+  k -= 6;
+  displayContent(true)
+  document.querySelector('.next').style.visibility = 'visible';
+  if (k <= 0) {
+    document.querySelector('.previous').style.visibility = 'hidden';
+  }
+});
 
 document.querySelector('.hamburger').addEventListener('click', function() {
   [].map.call(document.querySelectorAll('.hamburger'), function(el) {
